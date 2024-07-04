@@ -1,11 +1,13 @@
 import streamlit as st
-import google.generativeai as genai
+#import google.generativeai as genai
 from pypdf import PdfReader
 
 from matplotlib import pyplot as plt
 import numpy as np
 
 import pandas as pd
+
+import sys
 
 import os
 import csv
@@ -70,6 +72,8 @@ def main():
         job_description = load_pdf(uploaded_job_description)
         st.text_area("Extracted Job Description Text", job_description, height=300)
 
+    sys.exit()
+    
     #api_key = st.text_input("Enter your Google API Key:", type="password")
     #TODO - Using Brahmam's API key currently
     api_key = "AIzaSyDXFJgEYuudJjkaP26p8yceysDlnrOym7w"
