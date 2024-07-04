@@ -234,6 +234,10 @@ def main():
         #st.write(response.text)
         #st.write(f"Document saved at {file_path}")
 
+        response_name = chat_session.send_message (prompt_candidate_name) 
+        st.write("Candidate Name: ")
+        st.write(response_name.text)
+
 
         response_cat0 = chat_session.send_message (prompt_chart_values_skill) 
         st.write("Skills Match Percentage: ")
@@ -242,20 +246,25 @@ def main():
         #doc.add paragraph (response cat0.text)
 
         response_catl = chat_session.send_message (prompt_chart_values_tools) 
-        st.write("Tools Match Percentage: ")
-        st.write(response_catl.text)
+        st.write("Tools Match Percentage: ").append(response_cat1.text)
+        #st.write(response_catl.text)
 
         #doc.add_paragraph (response catl.text)
 
         response_cat2 = chat_session.send_message(prompt_chart_values_relevance) 
-        st.write("Overall Relevance Percentage: ")
-        st.write(response_cat2.text)
+        st.write("Overall Relevance Percentage: ").append(response_cat2.text)
+        #st.write(response_cat2.text)
 
-        response_name = chat_session.send_message (prompt_candidate_name) 
-        st.write("Candidate Name: ")
-        st.write(response_name.text)
 
         response_experience_level = chat_session.send_message (prompt_experience_level) 
+
+        experience_level = int (Decimal(response_experience_level.text.strip()))
+        if(experience_level > 100):
+            experience_level = 100
+
+        st.write("Experience Level Percentage: ")
+        st.write(str(experience_level))
+
         
         response_qualification_level = chat_session.send_message (prompt_qualification_level)
         st.write("Qualification Match Status: ")
@@ -266,13 +275,7 @@ def main():
 
         #doc.save(file_path)
 
-        experience_level = int (Decimal(response_experience_level.text.strip()))
-        if(experience_level > 100):
-            experience_level = 100
-
-        st.write("Experience Level Percentage: ")
-        st.write(str(experience_level))
-
+        
         
         categories = ['Skills', 'Tools', 'Relevance', 'Experience Match']
 
