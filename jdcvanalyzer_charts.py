@@ -236,14 +236,15 @@ def main():
 
         response_name = chat_session.send_message (prompt_candidate_name) 
         #st.write("Candidate Name: ")
-        string_val = "Candidate Name: "
-        string_val.append(response_name.text)
-        #st.write(response_name.text)
+        string_val = "Candidate Name: " + response_name.text
+        st.write(string_val)
 
 
         response_cat0 = chat_session.send_message (prompt_chart_values_skill) 
-        st.write("Skills Match Percentage: ")
-        st.write(response_cat0.text)
+        #st.write("Skills Match Percentage: ")
+        #st.write(response_cat0.text)
+        string_val = "Skills Match Percentage: " + response_cat0.text
+        st.write(string_val)        
 
         #doc.add paragraph (response cat0.text)
 
