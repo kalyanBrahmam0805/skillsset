@@ -236,25 +236,29 @@ def main():
 
 
         response_cat0 = chat_session.send_message (prompt_chart_values_skill) 
+        st.write("Skills Match Percentage: ")
         st.write(response_cat0.text)
 
         #doc.add paragraph (response cat0.text)
 
         response_catl = chat_session.send_message (prompt_chart_values_tools) 
+        st.write("Tools Match Percentage: ")
         st.write(response_catl.text)
 
         #doc.add_paragraph (response catl.text)
 
         response_cat2 = chat_session.send_message(prompt_chart_values_relevance) 
+        st.write("Overall Relevance Percentage: ")
         st.write(response_cat2.text)
 
         response_name = chat_session.send_message (prompt_candidate_name) 
+        st.write("Candidate Name: ")
         st.write(response_name.text)
 
         response_experience_level = chat_session.send_message (prompt_experience_level) 
-        st.write(response_experience_level.text)
-
-        response_qualification_level = chat_session.send_message (prompt_qualification_level) 
+        
+        response_qualification_level = chat_session.send_message (prompt_qualification_level)
+        st.write("Qualification Match Status: ")
         st.write(response_qualification_level.text)
 
 
@@ -265,7 +269,11 @@ def main():
         experience_level = int (Decimal(response_experience_level.text.strip()))
         if(experience_level > 100):
             experience_level = 100
-                                
+
+        st.write("Experience Level Percentage: ")
+        st.write(str(experience_level))
+
+        
         categories = ['Skills', 'Tools', 'Relevance', 'Experience Match']
 
         data = [int (Decimal (response_cat0.text.strip())), int (Decimal (response_catl.text.strip())), int (Decimal (response_cat2.text.strip())), experience_level]
