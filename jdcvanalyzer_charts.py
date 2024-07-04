@@ -72,7 +72,28 @@ def main():
         job_description = load_pdf(uploaded_job_description)
         st.text_area("Extracted Job Description Text", job_description, height=300)
 
+
+    from docx import Document
+    doc = Document()
+    doc.add_heading('JD_vs_CV_Analyzer:', level=1)
+    doc.add_paragraph(response.text)
+    directory = 'C:/Users/venka/OneDrive/Desktop/Skills'
+    file_path = os.path.join(directory, 'JD_vs_CV_Analyzer.docx')
+    csv_filename = os.path.join(directory, 'cv_analysis.csv')
+
+    # writing to csv file 
+    with open (csv_filename, 'w') as csvfile:
+        csvwriter = csv.writer (csvfile)
+        csvwriter.writerows (rows)
+
+    # create the directory if it doesn't exist
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+    doc.save(file_path)
+    print(f"Document saved at {file_path}")
+
     sys.exit()
+
     
     #api_key = st.text_input("Enter your Google API Key:", type="password")
     #TODO - Using Brahmam's API key currently
