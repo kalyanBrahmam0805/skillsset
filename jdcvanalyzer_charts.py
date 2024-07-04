@@ -170,7 +170,7 @@ def main():
         """
         prompt_candidate_name = """
 
-        Provide the candidate name
+        Provide the candidate name. Only provide the name without any additional words in the sentence.
 
         """
 
@@ -249,15 +249,19 @@ def main():
         #doc.add paragraph (response cat0.text)
 
         response_catl = chat_session.send_message (prompt_chart_values_tools) 
-        st.write("Tools Match Percentage: ")
-        st.write(response_catl.text)
+        #st.write("Tools Match Percentage: ")
+        #st.write(response_catl.text)
+        string_val = "Tools Match Percentage: " + response_catl.text
+        st.write(string_val)  
 
         #doc.add_paragraph (response catl.text)
 
         response_cat2 = chat_session.send_message(prompt_chart_values_relevance) 
-        st.write("Overall Relevance Percentage: ")
-        st.write(response_cat2.text)
-
+        #st.write("Overall Relevance Percentage: ")
+        #st.write(response_cat2.text)
+        string_val = "Overall Relevance Percentage: " + response_cat2.text
+        st.write(string_val)
+        
 
         response_experience_level = chat_session.send_message (prompt_experience_level) 
 
@@ -265,14 +269,16 @@ def main():
         if(experience_level > 100):
             experience_level = 100
 
-        st.write("Experience Level Percentage: ")
-        st.write(str(experience_level))
-
+        #st.write("Experience Level Percentage: ")
+        #st.write(str(experience_level))
+        string_val = "Experience Level Percentage: " + str(experience_level)
+        st.write(string_val)
         
         response_qualification_level = chat_session.send_message (prompt_qualification_level)
-        st.write("Qualification Match Status: ")
-        st.write(response_qualification_level.text)
-
+        #st.write("Qualification Match Status: ")
+        #st.write(response_qualification_level.text)
+        string_val = "Qualification Match Status: " + response_qualification_level.text
+        st.write(string_val)
 
         #doc.add_paragraph (response_cat2.text)
 
