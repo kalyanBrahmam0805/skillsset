@@ -78,23 +78,23 @@ def main():
     doc.add_heading('JD_vs_CV_Analyzer:', level=1)
     doc.add_paragraph("Brahmam")
     #directory = 'C:/Users/venka/OneDrive/Desktop/Skills'
-    directory = st.text_input("Enter the folder path")
-    file_path = os.path.join(directory, 'JD_vs_CV_Analyzer.docx')
-    doc.save(file_path)
-    csv_filename = os.path.join(directory, 'cv_analysis.csv')
+    #directory = st.text_input("Enter the folder path")
+    #file_path = os.path.join(directory, 'JD_vs_CV_Analyzer.docx')
+    #doc.save(file_path)
+    #csv_filename = os.path.join(directory, 'cv_analysis.csv')
 
     # writing to csv file 
-    with open (csv_filename, 'w') as csvfile:
-        csvwriter = csv.writer (csvfile)
-        csvwriter.writerows (rows)
+    # with open (csv_filename, 'w') as csvfile:
+    #     csvwriter = csv.writer (csvfile)
+    #     csvwriter.writerows (rows)
 
-    # create the directory if it doesn't exist
-    if not os.path.exists(directory):
-        os.makedirs(directory)
-    doc.save(file_path)
-    print(f"Document saved at {file_path}")
+    # # create the directory if it doesn't exist
+    # if not os.path.exists(directory):
+    #     os.makedirs(directory)
+    # doc.save(file_path)
+    # print(f"Document saved at {file_path}")
 
-    sys.exit()
+    # sys.exit()
 
     
     #api_key = st.text_input("Enter your Google API Key:", type="password")
@@ -199,40 +199,40 @@ def main():
         response = chat_session.send_message(prompt)
         from docx import Document
         #create new document
-        doc = Document()
+        #doc = Document()
         # Add a title
-        doc.add_heading('JD_vs_CV_Analyzer:', level=1)
+        #doc.add_heading('JD_vs_CV_Analyzer:', level=1)
         # Add the response text
-        doc.add_paragraph(response.text)
+        #doc.add_paragraph(response.text)
         # save the document
-        directory = 'C:/Users/venka/OneDrive/Desktop/Skills'
-        file_path = os.path.join(directory, 'JD_vs_CV_Analyzer.docx')
-        csv_filename = os.path.join(directory, 'cv_analysis.csv')
+        #directory = 'C:/Users/venka/OneDrive/Desktop/Skills'
+        #file_path = os.path.join(directory, 'JD_vs_CV_Analyzer.docx')
+        #csv_filename = os.path.join(directory, 'cv_analysis.csv')
 
         # writing to csv file 
-        with open (csv_filename, 'w') as csvfile:
+        # with open (csv_filename, 'w') as csvfile:
 
-        #creating a csv writer object 
-            csvwriter = csv.writer (csvfile)
+        # #creating a csv writer object 
+        #     csvwriter = csv.writer (csvfile)
 
-        # writing the fields
+        # # writing the fields
 
-        #csvwriter.writerow (fields)
+        # #csvwriter.writerow (fields)
 
-        # writing the data rows
-            csvwriter.writerows (rows)
+        # # writing the data rows
+        #     csvwriter.writerows (rows)
 
 
         # create the directory if it doesn't exist
-        if not os.path.exists(directory):
-            os.makedirs(directory)
-        doc.save(file_path)
-        print(f"Document saved at {file_path}")
+        # if not os.path.exists(directory):
+        #     os.makedirs(directory)
+        # doc.save(file_path)
+        # print(f"Document saved at {file_path}")
         
         # Generate the response/skills identified
         #response = chat_session.send_message(prompt)
         #st.write(response.text)
-        st.write(f"Document saved at {file_path}")
+        #st.write(f"Document saved at {file_path}")
 
 
         response_cat0 = chat_session.send_message (prompt_chart_values_skill) 
@@ -298,18 +298,18 @@ def main():
 
         st.pyplot (fig_skills)
 
-        candidate_list = [response_name.text.strip(), response_cat0.text.strip(), response_catl.text.strip(), response_cat2.text.strip(), str(experience_level), response_qualification_level.text.strip()] 
+        # candidate_list = [response_name.text.strip(), response_cat0.text.strip(), response_catl.text.strip(), response_cat2.text.strip(), str(experience_level), response_qualification_level.text.strip()] 
         
-        rows.append(candidate_list)
+        # rows.append(candidate_list)
 
-        with open (csv_filename, 'w') as csvfile:
+        # with open (csv_filename, 'w') as csvfile:
 
-        #creating a csv writer object 
-            csvwriter = csv.writer (csvfile)
+        # #creating a csv writer object 
+        #     csvwriter = csv.writer (csvfile)
 
-        # writing the data rows
+        # # writing the data rows
 
-            csvwriter.writerows (rows)
+        #     csvwriter.writerows (rows)
 
         #introduce delay to avoid 429: Resource exhausted error
 
