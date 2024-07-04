@@ -79,6 +79,7 @@ def main():
     doc.add_paragraph("Brahmam")
     directory = 'C:/Users/venka/OneDrive/Desktop/Skills'
     file_path = os.path.join(directory, 'JD_vs_CV_Analyzer.docx')
+    doc.save(file_path)
     csv_filename = os.path.join(directory, 'cv_analysis.csv')
 
     # writing to csv file 
