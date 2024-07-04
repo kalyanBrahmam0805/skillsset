@@ -77,7 +77,8 @@ def main():
     doc = Document()
     doc.add_heading('JD_vs_CV_Analyzer:', level=1)
     doc.add_paragraph("Brahmam")
-    directory = 'C:/Users/venka/OneDrive/Desktop/Skills'
+    #directory = 'C:/Users/venka/OneDrive/Desktop/Skills'
+    directory = st.text_input("Enter the folder path")
     file_path = os.path.join(directory, 'JD_vs_CV_Analyzer.docx')
     doc.save(file_path)
     csv_filename = os.path.join(directory, 'cv_analysis.csv')
