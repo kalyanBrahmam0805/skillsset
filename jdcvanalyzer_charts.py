@@ -318,6 +318,13 @@ def main():
 
         st.pyplot (fig_skills)
 
+        categories_index = ["Skills", "Tools", "Relevance", "Experience"]
+        match_values = [int (Decimal (response_cat0.text.strip())), int (Decimal (response_catl.text.strip())), int (Decimal (response_cat2.text.strip())), experience_level]
+        not_match_values = [100 - int (Decimal (response_cat0.text.strip())), 100 - int (Decimal (response_catl.text.strip())), 100 - int (Decimal (response_cat2.text.strip())), 100 - experience_level]
+        df_dashboard = pd.DataFrame({"Match %": match_values, "Not Match %": not_match_values}, index=categories_index)
+
+        st.pyplot(df_dashboard.plot.barh(stacked=True).figure)
+
         # candidate_list = [response_name.text.strip(), response_cat0.text.strip(), response_catl.text.strip(), response_cat2.text.strip(), str(experience_level), response_qualification_level.text.strip()] 
         
         # rows.append(candidate_list)
