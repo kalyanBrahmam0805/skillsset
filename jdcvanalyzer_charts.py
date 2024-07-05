@@ -325,6 +325,14 @@ def main():
 
         st.pyplot(df_dashboard.plot.barh(stacked=True).figure)
 
+        #Print overall selection
+        skills_tools_average = (int (Decimal (response_cat0.text.strip())) + int (Decimal (response_catl.text.strip()))) / 2
+
+        if(skills_tools_average > 60) and (int (Decimal (response_cat2.text.strip())) > 60):
+            st.header("Candidate selected for the JD specified")
+        else:
+            st.header("Candidate not selected for the JD specified")
+        
         # candidate_list = [response_name.text.strip(), response_cat0.text.strip(), response_catl.text.strip(), response_cat2.text.strip(), str(experience_level), response_qualification_level.text.strip()] 
         
         # rows.append(candidate_list)
